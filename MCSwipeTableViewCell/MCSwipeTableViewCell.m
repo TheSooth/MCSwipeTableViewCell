@@ -171,6 +171,12 @@ secondStateIconName:(NSString *)secondIconName
     
     if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged) {
         _isDragging = YES;
+
+        if (self.allowedDirection == MCSwipeTableViewAllowedDirectionLeft && translation.x > 0) {
+            return;
+        } else if (self.allowedDirection == MCSwipeTableViewAllowedDirectionRight && translation.x < 0) {
+            return;
+        }
         
         CGPoint center = {self.contentView.center.x + translation.x, self.contentView.center.y};
         [self.contentView setCenter:center];

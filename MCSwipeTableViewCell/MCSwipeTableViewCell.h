@@ -30,6 +30,12 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellMode){
     MCSwipeTableViewCellModeSwitch
 };
 
+typedef NS_ENUM(NSUInteger, MCSwipeTableViewAllowedDirection){
+    MCSwipeTableViewAllowedDirectionLeft = 0,
+    MCSwipeTableViewAllowedDirectionRight,
+    MCSwipeTableViewAllowedDirectionBoth
+};
+
 @protocol MCSwipeTableViewCellDelegate <NSObject>
 
 @optional
@@ -71,6 +77,8 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellMode){
 @property (nonatomic, assign) MCSwipeTableViewCellMode modeForState2;
 @property (nonatomic, assign) MCSwipeTableViewCellMode modeForState3;
 @property (nonatomic, assign) MCSwipeTableViewCellMode modeForState4;
+
+@property (nonatomic, assign) MCSwipeTableViewAllowedDirection allowedDirection;
 
 @property (nonatomic, assign) BOOL isDragging;
 @property (nonatomic, assign) BOOL shouldDrag;
